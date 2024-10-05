@@ -1,6 +1,8 @@
 ---
+import "/public/assets/css/_reset.css";
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,43 +10,226 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/public/assets/images/favicon-32x32.png" />
+    <script src="https://kit.fontawesome.com/5dc20c8ed2.js" crossorigin="anonymous"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <img src="/public/assets/images/logo.svg" alt="Huddle logo" />
+      <section>
+        <img src="/public/assets/images/illustration-mockups.svg" alt="Illustration mockups" />
+        <div>
+          <h1>Build The Community Your Fans Will Love</h1>
+          <p>
+            Huddle re-imagines the way we build communities. You have a voice, but so does your audience. Create
+            connections with your users as you engage in genuine discussion.
+          </p>
+          <button>Register</button>
+        </div>
+      </section>
+      <footer>
+        <ul>
+          <li>
+            <i class="fa-brands fa-facebook-f fa-sm"></i>
+          </li>
+          <li>
+            <i class="fa-brands fa-twitter fa-sm"></i>
+          </li>
+          <li>
+            <i class="fa-brands fa-instagram fa-sm"></i>
+          </li>
+        </ul>
+      </footer>
+    </main>
+
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/public/assets/fonts/pxiEyp8kv8JHgFVrJJfecg.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/public/assets/fonts/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(/public/assets/fonts/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    /* fonts sizes */
+    /* Step -2: 12.5px → 12.8px */
+    --fs-step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    /* Step -1: 15px → 16px */
+    --fs-step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    /* Step 0: 18px → 20px */
+    --fs-step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    /* Step 1: 21.6px → 25px */
+    --fs-step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    /* Step 2: 25.92px → 31.25px */
+    --fs-step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    /* Step 3: 31.104px → 39.0625px */
+    --fs-step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+    /* Step 4: 37.3248px → 48.8281px */
+    --fs-step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+    /* Step 5: 44.7898px → 61.0352px */
+    --fs-step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+
+    --clr-neutral: hsl(0, 0%, 100%);
+    --clr-accent: hsl(257, 40%, 49%);
+    --clr-accent-light: hsl(300, 69%, 71%);
+  }
+  html {
+    font-family: "Open Sans", system-ui, sans-serif;
+    color: var(--clr-neutral);
+  }
+  body {
+    min-height: 100dvh;
+    margin: 0;
+    background:
+      url("/public/assets/images/bg-desktop.svg") top left / cover no-repeat,
+      var(--clr-accent);
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    display: grid;
+    justify-content: center;
+
+    @media (max-width: 1100px) {
+      background:
+        url("/public/assets/images/bg-mobile.svg") top center / 100% no-repeat,
+        var(--clr-accent);
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: Poppins, system-ui, sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<style>
+  main {
+    --padding-block: 4rem;
+    display: grid;
+    gap: var(--padding-block);
+    container-type: inline-size;
+    width: clamp(375px, 80vw, 1400px);
+
+    & > img {
+      max-width: 50%;
+    }
+  }
+  section {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(min(375px, 100%), 1fr));
+    gap: 3rem;
+
+    @container (max-width: 780px) {
+      justify-items: center;
+      text-align: center;
+	  gap: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+  div {
+    margin-block-start: var(--padding-block);
+  }
+  h1 {
+    font-size: var(--fs-step-3);
+    line-height: 1.5;
+    margin-block-end: calc(var(--padding-block) / 2);
+  }
+  p {
+    line-height: 1.5;
+    text-wrap: pretty;
+    font-size: var(--fs-step-0);
+    margin-block-end: calc(var(--padding-block) / 2);
+  }
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+
+    & li {
+      --border-color: var(--clr-neutral);
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      padding: 1rem;
+      aspect-ratio: 1 / 1;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+
+      i {
+        color: var(--clr-neutral);
+      }
+
+      &:hover,
+      &:focus-visible {
+        --border-color: var(--clr-accent-light);
+
+        i {
+          color: var(--clr-accent-light);
+        }
+      }
+    }
+  }
+  button {
+    background-color: var(--clr-neutral);
+    padding-inline: 4rem;
+    padding-block: 1rem;
+    color: var(--clr-accent);
+    border: 0;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--clr-accent-light);
+      color: var(--clr-neutral);
+    }
+  }
 </style>
