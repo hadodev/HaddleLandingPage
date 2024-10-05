@@ -14,16 +14,16 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/public/assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/svg+xml" href="/HaddleLandingPage/assets/images/favicon-32x32.png" />
     <script src="https://kit.fontawesome.com/5dc20c8ed2.js" crossorigin="anonymous"></script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
     <main>
-      <img src="/public/assets/images/logo.svg" alt="Huddle logo" />
+      <img src="/HaddleLandingPage/assets/images/logo.svg" alt="Huddle logo" />
       <section>
-        <img src="/public/assets/images/illustration-mockups.svg" alt="Illustration mockups" />
+        <img src="/HaddleLandingPage/assets/images/illustration-mockups.svg" alt="Illustration mockups" />
         <div>
           <h1>Build The Community Your Fans Will Love</h1>
           <p>
@@ -112,7 +112,7 @@ const { title } = Astro.props;
     min-height: 100dvh;
     margin: 0;
     background:
-      url("/public/assets/images/bg-desktop.svg") top left / cover no-repeat,
+      url("/`public/assets/images/bg-desktop.svg") top left / cover no-repeat,
       var(--clr-accent);
     padding-inline: 2rem;
     padding-block: 2rem;
@@ -160,7 +160,7 @@ const { title } = Astro.props;
     @container (max-width: 780px) {
       justify-items: center;
       text-align: center;
-	  gap: 0;
+      gap: 0;
     }
 
     img {
